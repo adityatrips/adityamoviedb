@@ -1,0 +1,41 @@
+<nz-carousel
+  [nzDots]="false"
+  [nzAutoPlay]="true"
+  [nzEffect]="'transform-no-loop'"
+>
+  <div nz-carousel-content *ngFor="let movie of movies">
+    <img
+      nz-image
+      [nzFallback]="imageBlob"
+      [routerLink]="'/movie/' + movie.id"
+      class="movie_poster full"
+      [nzSrc]="'https://image.tmdb.org/t/p/original/' + movie.backdrop_path"
+    />
+  </div>
+</nz-carousel>
+<br />
+<nz-card [nzBorderless]="true" nzTitle="TRENDING TODAY">
+  <div
+    [nzHoverable]="false"
+    *ngFor="let movie of movies.slice(0, 10)"
+    nz-card-grid
+    [ngStyle]="gridStyle"
+  >
+    <img
+      style="height: 100% !important; width: 100% !important"
+      nz-image
+      [nzFallback]="imageBlob"
+      class="full"
+      [nzSrc]="'https://image.tmdb.org/t/p/original/' + movie.poster_path"
+    />
+    <button
+      [routerLink]="'/movies/' + movie.id"
+      style="margin-top: 8px"
+      nz-button
+      nzType="primary"
+      nzBlock
+    >
+      ...
+    </button>
+  </div>
+</nz-card>

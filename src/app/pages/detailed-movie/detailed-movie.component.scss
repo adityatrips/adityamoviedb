@@ -1,0 +1,36 @@
+.detail_poster {
+  height: auto;
+}
+.poster {
+  height: 100%;
+  width: 100%;
+  max-height: 256px !important;
+  max-width: 144px !important;
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+}
+
+@media screen and (max-width: 675px) {
+  .poster {
+    height: 100%;
+    width: 100%;
+    max-height: 125px !important;
+    max-width: 75px !important;
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .poster {
+    height: 100%;
+    width: 100%;
+    max-height: 400px !important;
+    max-width: 250px !important;
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+  }
+}

@@ -1,0 +1,23 @@
+.layout {
+  min-height: 100vh;
+}
+nz-header {
+  position: fixed;
+  width: 100%;
+  z-index: 999;
+}
+[nz-menu] {
+  line-height: 64px;
+}
+.inner-content {
+  padding: 24px;
+  background: rgba(255, 255, 255, 0.2);
+  min-height: 380px;
+}
+nz-content {
+  padding: 0 50px;
+  margin-top: 80px;
+}
+nz-footer {
+  text-align: center;
+}

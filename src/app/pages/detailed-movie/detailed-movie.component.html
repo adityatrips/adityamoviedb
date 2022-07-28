@@ -1,0 +1,71 @@
+<div style="position: relative">
+  <nz-carousel [nzEffect]="'fade'">
+    <div nz-carousel-content>
+      <img
+        nz-image
+        [nzFallback]="imageBlob"
+        [routerLink]="'/movie/' + detail.id"
+        class="detail_poster full"
+        [nzSrc]="'https://image.tmdb.org/t/p/original/' + detail.backdrop_path"
+      />
+    </div>
+  </nz-carousel>
+  <img
+    nz-image
+    [nzFallback]="imageBlob"
+    class="full poster"
+    [nzSrc]="'https://image.tmdb.org/t/p/original/' + detail.poster_path"
+  />
+</div>
+<h1 class="tac">{{ detail.title }}</h1>
+<p class="tac">{{ detail.overview }}</p>
+<ul>
+  <li>
+    Budget:
+    <span style="font-weight: bold">{{ formatNumbers(detail.budget) }}</span>
+  </li>
+  <li>
+    Genres
+    <ul>
+      <li *ngFor="let g of detail.genres">{{ g.name }}</li>
+    </ul>
+  </li>
+  <li>
+    <a target="_blank" [href]="'https://www.imdb.com/title/' + detail.imdb_id"
+      >Click me!</a
+    >
+    to visit the IMDb link
+  </li>
+  <li>
+    Production companies
+    <ul>
+      <li *ngFor="let c of detail.production_companies">
+        [{{ c.origin_country }}] {{ c.name }}
+      </li>
+    </ul>
+  </li>
+  <li>
+    Production countries
+    <ul>
+      <li *ngFor="let c of detail.production_countries">
+        [{{ c.iso_3166_1 }}] {{ c.name }}
+      </li>
+    </ul>
+  </li>
+  <li>
+    Spoken languages
+    <ul>
+      <li *ngFor="let l of detail.spoken_languages">{{ l.name }}</li>
+    </ul>
+  </li>
+  <li>
+    Released on <span style="font-weight: bold">{{ detail.release_date }}</span>
+  </li>
+  <li>
+    Revenue
+    <span style="font-weight: bold">{{ formatNumbers(detail.revenue) }}</span>
+  </li>
+  <li>
+    ** <span style="font-weight: bold">{{ detail.tagline }}</span> **
+  </li>
+</ul>

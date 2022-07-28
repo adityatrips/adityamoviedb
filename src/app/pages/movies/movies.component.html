@@ -1,0 +1,128 @@
+<nz-collapse style="margin-bottom: 16px">
+  <nz-collapse-panel [nzHeader]="'Search Movies'">
+    <form [formGroup]="searchForm" (ngSubmit)="search()">
+      <nz-input-group style="margin-bottom: 8px" [nzSuffix]="suffixIconSearch">
+        <input
+          type="text"
+          formControlName="queryF"
+          nz-input
+          placeholder="Search here..."
+        />
+      </nz-input-group>
+      <nz-select
+        [(ngModel)]="listOfSelectedLanguages"
+        [ngModelOptions]="{ standalone: true }"
+        class="full"
+        style="margin-bottom: 8px"
+        nzMode="tags"
+        [nzTokenSeparators]="[',']"
+        nzPlaceHolder="Language(s)"
+      >
+        <nz-option
+          *ngFor="let option of listOfTagLanguages"
+          [nzLabel]="option.english_name"
+          [nzValue]="option.iso_639_1"
+        ></nz-option>
+      </nz-select>
+      <nz-select
+        [(ngModel)]="listOfSelectedRegions"
+        [ngModelOptions]="{ standalone: true }"
+        class="full"
+        style="margin-bottom: 8px"
+        nzMode="tags"
+        [nzTokenSeparators]="[',']"
+        nzPlaceHolder="Region(s)"
+      >
+        <nz-option
+          *ngFor="let option of listOfTagRegions"
+          [nzLabel]="option.english_name"
+          [nzValue]="option.iso_3166_1"
+        ></nz-option>
+      </nz-select>
+      <nz-date-picker
+        style="margin-bottom: 8px"
+        nzMode="year"
+        class="full"
+        [(ngModel)]="date"
+        [ngModelOptions]="{ standalone: true }"
+        (ngModelChange)="onChange($event)"
+      ></nz-date-picker>
+      <button
+        style="margin-bottom: 8px"
+        (click)="search()"
+        nz-button
+        nzType="primary"
+        nzBlock
+      >
+        Search
+      </button>
+      <button
+        *ngIf="totalItems !== 0"
+        (click)="clearSearch()"
+        nz-button
+        nzType="primary"
+        nzBlock
+      >
+        Clear
+      </button>
+    </form>
+  </nz-collapse-panel>
+</nz-collapse>
+
+<nz-pagination
+  style="margin-bottom: 16px"
+  *ngIf="totalItems !== 0"
+  class="tac full"
+  [nzPageIndex]="page"
+  [nzTotal]="totalItems"
+  nzSimple
+  (nzPageIndexChange)="changePage($event)"
+></nz-pagination>
+
+<div
+  style="padding: 16px; margin-bottom: 16px !important"
+  *ngFor="let movie of resultMovies"
+  style="margin: 16px 0; border-bottom: 1px solid #000"
+  nz-row
+  nzJustify="center"
+>
+  <div nz-col nzFlex="158px">
+    <img
+      nz-image
+      [nzFallback]="imageBlob"
+      class="movie_poster"
+      [nzSrc]="'https://image.tmdb.org/t/p/original/' + movie.poster_path"
+    />
+  </div>
+  <div nz-col nzFlex="auto">
+    <h1 style="margin: 0; padding: 0" class="tac">{{ movie.title }}</h1>
+    <p>{{ movie.overview }}</p>
+    <h6 style="margin: 0; padding: 0; margin-bottom: 16px" class="tac">
+      {{ movie.release_date }}
+    </h6>
+  </div>
+  <button
+    style="margin-bottom: 16px"
+    nz-button
+    [routerLink]="'/movies/' + movie.id"
+    nzType="primary"
+    class="full"
+  >
+    Read More
+  </button>
+</div>
+
+<nz-pagination
+  *ngIf="totalItems !== 0"
+  class="tac full"
+  [nzPageIndex]="page"
+  [nzTotal]="totalItems"
+  nzSimple
+  (nzPageIndexChange)="changePage($event)"
+></nz-pagination>
+
+<nz-back-top id="clickme"></nz-back-top>
+
+<ng-template #suffixIconSearch>
+  <i nz-icon nzType="search"></i>
+</ng-template>
