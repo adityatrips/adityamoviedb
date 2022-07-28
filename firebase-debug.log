@@ -1,0 +1,36 @@
+[debug] [2022-07-28T21:25:52.781Z] ----------------------------------------------------------------------
+[debug] [2022-07-28T21:25:52.783Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\adity\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy
+[debug] [2022-07-28T21:25:52.783Z] CLI Version:   11.1.0
+[debug] [2022-07-28T21:25:52.783Z] Platform:      win32
+[debug] [2022-07-28T21:25:52.783Z] Node Version:  v16.14.2
+[debug] [2022-07-28T21:25:52.784Z] Time:          Fri Jul 29 2022 02:55:52 GMT+0530 (India Standard Time)
+[debug] [2022-07-28T21:25:52.784Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2022-07-28T21:25:52.833Z] Field ".hosting.rewrites" in "firebase.json" is possibly invalid: should be array
+[debug] [2022-07-28T21:25:52.833Z] Field ".hosting" in "firebase.json" is possibly invalid: should be array
+[debug] [2022-07-28T21:25:52.833Z] Field ".hosting" in "firebase.json" is possibly invalid: should match some schema in anyOf
+[debug] [2022-07-28T21:25:52.837Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2022-07-28T21:25:52.838Z] > authorizing via signed-in user (adityatripathi.at04@gmail.com)
+[debug] [2022-07-28T21:25:52.838Z] [iam] checking project adityamoviedb for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2022-07-28T21:25:52.840Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/adityamoviedb:testIamPermissions [none]
+[debug] [2022-07-28T21:25:52.840Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/adityamoviedb:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2022-07-28T21:25:54.502Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/adityamoviedb:testIamPermissions 200
+[debug] [2022-07-28T21:25:54.502Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/adityamoviedb:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2022-07-28T21:25:54.503Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/adityamoviedb [none]
+[debug] [2022-07-28T21:25:55.181Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/adityamoviedb 200
+[debug] [2022-07-28T21:25:55.181Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/adityamoviedb {"projectId":"adityamoviedb","projectNumber":"84777100502","displayName":"adityamoviedb","name":"projects/adityamoviedb","resources":{"hostingSite":"adityamoviedb"},"state":"ACTIVE","etag":"1_c74bec2c-53ca-4d33-b786-ed914fe83bf4"}
+[info] 
+[info] === Deploying to 'adityamoviedb'...
+[info] 
+[info] i  deploying hosting 
+[debug] [2022-07-28T21:25:55.184Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/adityamoviedb [none]
+[debug] [2022-07-28T21:25:55.866Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/adityamoviedb 200
+[debug] [2022-07-28T21:25:55.866Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/adityamoviedb {"projectId":"adityamoviedb","projectNumber":"84777100502","displayName":"adityamoviedb","name":"projects/adityamoviedb","resources":{"hostingSite":"adityamoviedb"},"state":"ACTIVE","etag":"1_c74bec2c-53ca-4d33-b786-ed914fe83bf4"}
+[debug] [2022-07-28T21:25:56.084Z] TypeError: (cfg.rewrites || []).filter is not a function
+    at validateDeploy (C:\Users\adity\AppData\Roaming\npm\node_modules\firebase-tools\lib\deploy\hosting\validate.js:14:64)
+    at prepare (C:\Users\adity\AppData\Roaming\npm\node_modules\firebase-tools\lib\deploy\hosting\prepare.js:31:39)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+    at async chain (C:\Users\adity\AppData\Roaming\npm\node_modules\firebase-tools\lib\deploy\index.js:33:9)
+    at async deploy (C:\Users\adity\AppData\Roaming\npm\node_modules\firebase-tools\lib\deploy\index.js:68:5)
+[error] 
+[error] Error: An unexpected error has occurred.
